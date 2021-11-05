@@ -10,7 +10,7 @@ export class GetApiService {
     private http:HttpClient
   ) { }
 
-  apiCall(){
-    return this.http.get('https://petstore.swagger.io/v2/pet/findByStatus?status=available')
+  apiCall(value:any){
+    return this.http.get(`https://petstore.swagger.io/v2/pet/findByStatus?status=${value}`)
   }
 }
