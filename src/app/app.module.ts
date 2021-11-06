@@ -7,10 +7,18 @@ import { AppComponent } from './app.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
 import {AppRoutingModule} from './app-routing.module'
+import { RouterModule } from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
+import { PetComponent } from './pet/pet.component';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomepageComponent,
+    PetComponent
   ],
   imports: [
     BrowserModule,
@@ -19,10 +27,16 @@ import {AppRoutingModule} from './app-routing.module'
     MatPaginatorModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    RouterModule.forRoot([
+      {path:'', component: HomepageComponent},
+      {path:'pet/:id/:name/:status', component: PetComponent}
+    ])
 
     
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
