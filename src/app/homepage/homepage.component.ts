@@ -28,7 +28,6 @@ export class HomepageComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       setTimeout(() => this.dataSource.paginator = this.paginator)
       console.log(this.paginator)
-      console.warn(data)
       this.data = data  
     })
   }

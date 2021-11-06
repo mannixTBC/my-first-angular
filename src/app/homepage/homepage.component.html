@@ -1,59 +1,47 @@
 <div class="container">
 
     <h1>Welcome to the pet dealer</h1>
-    <h2>Shearch available pets</h2>
+    <h2>Search available pets</h2>
 <mat-form-field>
 <mat-select  [(value)]='selectVal'>
     <mat-option *ngFor="let status of status" [value]="status"  (click)="open($event)">    {{status}}    </mat-option>
 </mat-select>
 </mat-form-field>
 
-
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
 
-<ng-container matColumnDef="id">
-  <th mat-header-cell *matHeaderCellDef> Id</th>
-  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-</ng-container>
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
 
-<ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
 
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="details">
-    <th mat-header-cell *matHeaderCellDef> Description </th>
-    <td mat-cell *matCellDef="let element"> <a mat-button color="warn" [routerLink]="['/pet', element.id, element.name, element.status]"
-    routerLinkActive="router-link-active" >Find out More</a> </td>
-  </ng-container>
- 
-
- 
-
- 
-
-
-<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> <a mat-button color="warn" [routerLink]="['/pet', element.id, element.name, element.status]"
+          routerLinkActive="router-link-active" >Find out More</a> </td>
+        </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
 
 <mat-paginator #paginator
-[pageSize]="20"
-[pageSizeOptions]="[5, 10, 25, 100]"
-aria-label="Select page">
+  [pageSize]="20"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page">
 </mat-paginator>
-
 
 </div>
 
 <router-outlet></router-outlet>
-<!-- <router-outlet></router-outlet> -->

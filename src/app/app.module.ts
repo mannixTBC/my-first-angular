@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PetComponent } from './pet/pet.component';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -29,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     AppRoutingModule,
     MatButtonModule,
+    MatCardModule,
     RouterModule.forRoot([
       {path:'', component: HomepageComponent},
       {path:'pet/:id/:name/:status', component: PetComponent}
